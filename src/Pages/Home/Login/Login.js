@@ -1,21 +1,25 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 
 import { useForm } from 'react-hook-form';
-import { Link} from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate} from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 
 
 const Login = () => {
    const {handleSubmit, formState:{errors},register } = useForm()
    const [loginError,setLoginError] = useState('')
-  const {} = useContext(AuthContext)
-
-   
+   const [loginUserEmail,setLoginUserEmail] = useState('')
+  const {loginWithGoogle,createUser} = useContext(AuthContext)
+   const googleProvider = new GoogleAuthProvider()
+   const navigate = useNavigate()
 
    const handleGoogleSigIn = () =>  {
 
-    googleSignIn()
+    loginWithGoogle(googleProvider)
     .then(result => {
         const user = result.user;
      
@@ -32,12 +36,27 @@ const Login = () => {
 
 
 
-    const handleLogin = (data) => {
-        setLoginError('')
-         console.log(data);
-        
-    
-       }
+const handleLogin = (data) => {
+    // setCreatedUserEmail(data.email)
+
+    setLoginError('')
+     console.log(data);
+     createUser(data.email, data.password)
+     .then(result => {
+        const user = result.user;
+       console.log(user);
+       setLoginUserEmail(data.email)
+       toast.success('User login successfully done')
+       navigate('/')   
+
+     })
+     .catch(error => {
+        console.log(error.message);
+        setLoginError(error.message)
+     })
+
+   }
+
 
     return (
         <div>

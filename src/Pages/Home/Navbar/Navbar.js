@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const navigate = useNavigate()
+    const {user,logOut} = useContext(AuthContext)
+    const handleLogOut = () => {
+      logOut()
+      .then(() => {
+        toast.success('You successfully Log Out')
+        navigate('/')
+      })
+      .catch(err => console.log(err))
+    }
     return (
         <div>
              <div class="bg-gray-900">
@@ -59,15 +71,33 @@ const Navbar = () => {
                 About us
               </a>
             </li>
+           {
+            user?.email 
+             ? 
+             <>
+              <li>
+              <button
+               onClick={handleLogOut}
+                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                
+              >
+                LogOut
+              </button>
+            </li>
+             </> 
+           :
+           <>
             <li>
               <Link
               to='/login'
-                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-primary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                 
               >
                 Log In
               </Link>
             </li>
+           </>
+           }
           </ul>
           <div class="lg:hidden">
             <button

@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: "wooden-olx",
   storageBucket: "wooden-olx.appspot.com",
   messagingSenderId: "869922307127",
-  appId: "1:869922307127:web:6fbe1738e5a645c601d3b2"
+  appId: "1:869922307127:web:6fbe1738e5a645c601d3b2",
 };
 
 // Initialize Firebase

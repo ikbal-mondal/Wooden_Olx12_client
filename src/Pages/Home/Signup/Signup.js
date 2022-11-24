@@ -1,14 +1,44 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Signup = () => {
     const {register,handleSubmit,formState:{errors}} = useForm()
     const [signUpError,setSignUpError] = useState('') 
-   
+     const {createUser,updateUser,logOut} = useContext(AuthContext)
+     const navigate = useNavigate()
     const handleSignUp = data => {
       
-        console.log(data);
+      setSignUpError('')
+      createUser(data.email,data.password)
+      .then(result => {
+         const user = result.user;
+         logOut()
+         toast.success('user Created Successfully')
+         navigate('/login')
+        console.log(user);
+        const userInfo = {
+          displayName: data.name
+       }
+       console.log(userInfo);
+       updateUser(userInfo)
+       .then(() => {})
+       .catch((error) => {
+       console.error(error);
+       });
+            
+
+       })
+       .catch(error => {
+          console.log(error);
+         
+       })
+      
+
+
        }
     return (
         <div className='grid lg:grid-cols-2 p-4 m-6'>
