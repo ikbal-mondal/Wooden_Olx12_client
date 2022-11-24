@@ -2,7 +2,10 @@
 import { Toaster } from 'react-hot-toast';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
+import DashboardLayout from './DashboardLayout.js/DashboardLayout';
 import Main from './Layout/Main';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Error404Page from './Pages/Error404Page/Error404Page';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Home/Login/Login';
 import Signup from './Pages/Home/Signup/Signup';
@@ -29,9 +32,34 @@ function App() {
            {
             path:'/login',
             element:<Login></Login>
+           },
+           {
+            path:'/*',
+            element:<Error404Page></Error404Page>
            }
       ]
-    }
+    },
+
+ {
+
+  path:'/dashboard',
+    element: <DashboardLayout></DashboardLayout>,
+   
+    children:[
+      {
+        path:'/dashboard',
+        element: <Dashboard></Dashboard>
+      },
+     
+      
+
+     
+    ]
+
+
+ }
+
+
   ])
 
   return (
