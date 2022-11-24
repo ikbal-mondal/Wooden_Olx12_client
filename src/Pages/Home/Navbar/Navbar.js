@@ -41,16 +41,27 @@ const Navbar = () => {
                Home
               </Link>
             </li>
-            <li>
-              <a
-                href="/"
-                aria-label="Our product"
-                title="Our product"
-                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                Features
-              </a>
-            </li>
+           {/* start */}
+
+           <div className="flex-none">
+    <ul className="menu menu-horizontal p-0">
+      
+      <li tabIndex={0}>
+        <Link  className='font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 '>
+          Category
+          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+        </Link>
+        <ul className="p-2 bg-base-100">
+          <li className='border-b-2  hover:bg-black hover:text-white border-slate-300'><a>Category 1</a></li>
+          <li className='border-b-2 hover:bg-black hover:text-white border-slate-300'><a>Category 2</a></li>
+          <li className='border-b-2 hover:bg-black hover:text-white border-slate-300'><a>Category 2</a></li>
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+
+           {/* end */}
             <li>
               <a
                 href="/"
@@ -126,37 +137,23 @@ const Navbar = () => {
                 <div class="p-5 bg-white border rounded shadow-sm">
                   <div class="flex items-center justify-between mb-4">
                     <div>
-                      <a
-                        href="/"
-                        aria-label="Company"
-                        title="Company"
-                        class="inline-flex items-center"
-                      >
-                        <svg
-                          class="w-8 text-deep-purple-accent-400"
-                          viewBox="0 0 24 24"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeMiterlimit="10"
-                          stroke="currentColor"
-                          fill="none"
-                        >
-                          <rect x="3" y="1" width="7" height="12" />
-                          <rect x="3" y="17" width="7" height="6" />
-                          <rect x="14" y="1" width="7" height="6" />
-                          <rect x="14" y="11" width="7" height="12" />
-                        </svg>
-                        <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          Company
-                        </span>
-                      </a>
+                    <Link
+           to='/'
+            aria-label="Company"
+            title="Company"
+            class="inline-flex items-center"
+          >
+           <img style={{width:'50px', borderRadius:'50%'}} src="https://pbs.twimg.com/profile_images/900965531225800708/foGTmeKH_400x400.jpg" alt="" />
+            <span class="ml-2 text-xl font-bold tracking-wide text-gray-900 uppercase">
+            Wooden OLX
+            </span>
+          </Link>
                     </div>
                     <div>
                       <button
                         aria-label="Close Menu"
                         title="Close Menu"
-                        class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200  focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
@@ -171,25 +168,32 @@ const Navbar = () => {
                   <nav>
                     <ul class="space-y-4">
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to='/home'
                           aria-label="Our product"
                           title="Our product"
                           class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Product
-                        </a>
+                         Home
+                        </Link>
                       </li>
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="Our product"
-                          title="Our product"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Features
-                        </a>
-                      </li>
+                      <div className="flex-none">
+    <ul className="menu menu-horizontal p-0">
+      
+      <li tabIndex={0}>
+        <Link  className='font-medium tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-600'>
+          Category
+          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+        </Link>
+        <ul className="p-2  bg-slate-300">
+          <li className='border-b-2 border-slate-200'><Link to='/'>Category 1</Link></li>
+          <li className='border-b-2 border-slate-200'><Link to='/'>Category 2</Link></li>
+          <li className='border-b-2 border-slate-200'><Link to='/'>Category 2</Link></li>
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
                       <li>
                         <a
                           href="/"
@@ -210,16 +214,33 @@ const Navbar = () => {
                           About us
                         </a>
                       </li>
-                      <li>
-                        <a
-                          href="/"
-                          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Sign up
-                        </a>
-                      </li>
+                      {
+            user?.email 
+             ? 
+             <>
+              <li>
+              <button
+               onClick={handleLogOut}
+                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                
+              >
+                LogOut
+              </button>
+            </li>
+             </> 
+           :
+           <>
+            <li>
+              <Link
+              to='/login'
+                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-primary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                
+              >
+                Log In
+              </Link>
+            </li>
+           </>
+           }
                     </ul>
                   </nav>
                 </div>
