@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import DashboardLayout from './DashboardLayout.js/DashboardLayout';
 import Main from './Layout/Main';
+import Homefurniture from './Pages/Catagorys/Homefurniture/Homefurniture';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Error404Page from './Pages/Error404Page/Error404Page';
 import Home from './Pages/Home/Home/Home';
@@ -24,6 +25,10 @@ function App() {
            {
             path:'/home',
             element:<Home></Home>
+           },
+           {
+            path:'/homefurniture',
+            element:<Homefurniture></Homefurniture>
            },
            {
             path:'/signup',
