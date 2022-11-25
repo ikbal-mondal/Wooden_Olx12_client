@@ -44,39 +44,14 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              {/* start */}
-
-              <div className="flex-none">
-                <ul className="menu menu-horizontal p-0">
-                  <li tabIndex={0}>
-                    <Link className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 ">
-                      Category
-                      <svg
-                        className="fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                      </svg>
-                    </Link>
-                    <ul className="p-2 bg-base-100">
-                      <li className="border-b-2  hover:bg-black hover:text-white border-slate-300">
-                        <Link to="homefurniture">Home Furniture</Link>
-                      </li>
-                      <li className="border-b-2 hover:bg-black hover:text-white border-slate-300">
-                        <Link to="/"> Office Furniture</Link>
-                      </li>
-                      <li className="border-b-2 hover:bg-black hover:text-white border-slate-300">
-                        <Link to="/">Event Furniture</Link>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-
-              {/* end */}
+              <li>
+                <Link
+                  to="/home"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  Product
+                </Link>
+              </li>
               <li>
                 <Link
                   to="/dashboard"
@@ -190,35 +165,18 @@ const Navbar = () => {
                             Home
                           </Link>
                         </li>
-                        <div className="flex-none">
-                          <ul className="menu menu-horizontal p-0">
-                            <li tabIndex={0}>
-                              <Link className="font-medium tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-600">
-                                Category
-                                <svg
-                                  className="fill-current"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="20"
-                                  height="20"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                                </svg>
-                              </Link>
-                              <ul className="p-2  bg-slate-300">
-                                <li className="border-b-2 border-slate-200">
-                                  <Link to="/homefurniture">Home Furniture</Link>
-                                </li>
-                                <li className="border-b-2 border-slate-200">
-                                  <Link to="/">Category 2</Link>
-                                </li>
-                                <li className="border-b-2 border-slate-200">
-                                  <Link to="/">Category 2</Link>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </div>
+                       
+                        
+                          <li>
+                              <Link
+                     to="/home"
+                   class="font-medium tracking-wide text-gray-900 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  Product
+                </Link>
+                  </li>
+                         
+                     
                         <li>
                           <Link
                             to="/dashboard"

@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
+import Categories from '../Categories/Categories';
 import Navbar from '../Navbar/Navbar';
 
 const Home = () => {
@@ -7,7 +8,8 @@ const Home = () => {
         <div>
           
             <Banner></Banner>
-            <h1 className='my-12 text-5xl font-semibold text-center '> this is a Home page  Content</h1>
+            
+             <Categories></Categories>
            
         </div>
     );
