@@ -14,7 +14,7 @@ const Categories = () => {
      
 
     return (
-        <div>
+        <div className="grid lg:grid-cols-3   md:grid-cols-2 sm:grid-cols-2 my-12   gap-6 container mx-auto ">
           {
             Categories?.map(Category => <CategoryCard
             key={Category.Category_id}
