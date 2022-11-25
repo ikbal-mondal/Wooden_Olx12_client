@@ -1,7 +1,7 @@
 [
  
 
-     {
+     {  "Category_id": "01",
         "Name": "Krishna Wood Decor Solid",
         "img": "https://i.ibb.co/JK6mq60/img1home.jpg",
         "location": "durga pur",
@@ -12,7 +12,7 @@
         "details": "Product Dimensions:3 Seater Length (71 Inch) Width (30 Inch) Height (16 Inch), 1 Seater Length (29 Inch) Width (30 Inch) Height (16 Inch) Color:-Walnut Brown Special PU Polish | This is Solid Sheesham Teak Wood Wooden Sofa Set 5 Seater Home Furniture Living Room | 5 Seater Sofa Set , Wooden sofa set furniture , sofa set for living room , sofa 3 1 1 set , solid wood sofa | Office Furniture | Wooden Sofa Set 3+1+1 | Wood Sofa 3 seater | l Shape sofa | Sofa set | Wood Sofa Set Home and Office Decoration Furniture The product requires basic self assembly at customers end and comes with self assembly instructions along with necessary accessories"
         
      },
-     {
+     {  "Category_id": "01",
         "Name": "MOHARANA & SONS CORNNER Sofa L-Shape Sofa Set (UP White L)",
         "img": "https://i.ibb.co/QpnpQyq/img2home.jpg",
         "location": "Singapore",
@@ -22,7 +22,38 @@
         "seller_name": "Generic",
         "details": "MOHARANA AND SONS IS KNOWN MANUFACTURER FURNITURE IN BHUBANESWAR, If a single piece of furniture has the ability to define the style of a personal living space, that piece would be the sofa. Available in a range of styles -- with a variety of functions -- a sofa can be functional or whimsical, period or contemporary, single or sectional. In each instance the sofa, as a signature object, defines the space in which it sits.Home Furniture Living Room | 5 Seater Sofa Set , Wooden sofa set furniture , sofa set for living room "
         
+     },
+     {  "Category_id": "02",
+        "Name": "SOS LiteOffice Rectangular Meeting Table in Everest White Colour",
+        "img": "https://i.ibb.co/p09qbGd/office1.webp",
+        "location": "Ranaghat",
+        "resale_price": "191",
+        "original_price": "494",
+        "years_of_use": "5",
+        "seller_name": "Arjun kumar",
+        "details": "SOS an office furniture expert, offers a comprehensive range of designer office furniture products that is strong, durable and tough. It comes from the house of Spacewood, which is Indias largest furniture manufacturer -PROUDLY INDIAN!.A combination of steel and wood make the products utile and a delight to the user. SOS products are certified by OHSAS 18001-2007, ISO 9001-2015, ISO 14001-2015, BIFMA. All our products are manufactured at in-house integrated facility that is IGBC Green Building Certified where each product goes through stringent quality checks to provide you the best of the best."
+        
+     },
+     {  "Category_id": "02",
+        "Name": "Royaloak Oval Boss Table 1.6 M in Melamine Finish",
+        "img": "https://i.ibb.co/bvMRpp9/office2.webp",
+        "location": "Mumbai",
+        "resale_price": "459",
+        "original_price": "839",
+        "years_of_use": "4",
+        "seller_name": "Sandeep pall",
+        "details": "The Oval Business Furniture Series A Right Corner L-Shape Desk with File Cabinet maximizes your small office space with a convenient design and commercial-grade quality. Ideal for use in a corner, A scratch-resistant melamine surface, and durable end panels fend off damage. Keep your cables in order with a comprehensive wire management system. Store materials in the convenient drawer cabinet, which fits under the Desk. Featuring an attractive 2-tone finish and contemporary styling."
+        
      }
+
+
+
+
+
+
+
+
+
 
 
 ]
