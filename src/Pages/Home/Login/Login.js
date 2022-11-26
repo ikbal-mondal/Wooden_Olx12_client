@@ -18,11 +18,10 @@ const Login = () => {
    const navigate = useNavigate()
 
    const handleGoogleSigIn = () =>  {
-
     loginWithGoogle(googleProvider)
     .then(result => {
         const user = result.user;
-     
+        navigate('/')   
     })
     .catch((error) => {
         // Handle Errors here.
@@ -34,11 +33,8 @@ const Login = () => {
 
 }
 
-
-
 const handleLogin = (data) => {
     // setCreatedUserEmail(data.email)
-
     setLoginError('')
      console.log(data);
      userLogin(data.email, data.password)
@@ -48,7 +44,7 @@ const handleLogin = (data) => {
        setLoginUserEmail(data.email)
        toast.success('User login successfully done')
        navigate('/')   
-
+       
      })
      .catch(error => {
         console.log(error.message);
