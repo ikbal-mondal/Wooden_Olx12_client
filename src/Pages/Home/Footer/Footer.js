@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='bg-gradient-to-r from-primary to-green-700 border-0 text-white'>
+        <div className='bg-gradient-to-r from-primary to-gray-700 border-0 text-white'>
              <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
@@ -14,13 +14,13 @@ const Footer = () => {
             class="inline-flex items-center"
           >
            <img style={{width:'100px', borderRadius:'50%'}} src="https://pbs.twimg.com/profile_images/900965531225800708/foGTmeKH_400x400.jpg" alt="" />
-            <h2 class="ml-2 text-2xl font-bold tracking-wide text-gray-900 uppercase">
+            <h2 class="ml-2 text-2xl font-bold tracking-wide  uppercase">
             Wooden OLX
             </h2>
           </Link>
         </div>
         <div className="space-y-2 text-sm">
-          <p className="text-base font-bold tracking-wide text-gray-900">
+          <p className="text-base font-bold tracking-wide ">
             Contacts
           </p>
           <div className="flex">

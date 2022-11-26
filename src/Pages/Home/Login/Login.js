@@ -13,15 +13,17 @@ const Login = () => {
    const {handleSubmit, formState:{errors},register } = useForm()
    const [loginError,setLoginError] = useState('')
    const [loginUserEmail,setLoginUserEmail] = useState('')
-  const {loginWithGoogle,userLogin} = useContext(AuthContext)
+   const {loginWithGoogle,userLogin} = useContext(AuthContext)
+  //  const navigate = useNavigate();
+  // const from = location.useStat?.from?.pathname || '/'
+   
    const googleProvider = new GoogleAuthProvider()
-   const navigate = useNavigate()
 
    const handleGoogleSigIn = () =>  {
     loginWithGoogle(googleProvider)
     .then(result => {
         const user = result.user;
-        navigate('/')   
+        
     })
     .catch((error) => {
         // Handle Errors here.
@@ -33,6 +35,7 @@ const Login = () => {
 
 }
 
+
 const handleLogin = (data) => {
     // setCreatedUserEmail(data.email)
     setLoginError('')
@@ -43,7 +46,7 @@ const handleLogin = (data) => {
        console.log(user);
        setLoginUserEmail(data.email)
        toast.success('User login successfully done')
-       navigate('/')   
+  
        
      })
      .catch(error => {

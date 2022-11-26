@@ -41,7 +41,6 @@ const loginWithGoogle = (provider) => {
     useEffect(() => {
 
         const unsubscribe =  onAuthStateChanged(auth,currentUser =>  {
-             console.log(currentUser);
              SetUser(currentUser)
              SetLoading(false)
           });

@@ -86,7 +86,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/login"
-                      class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-primary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-primary to-secondary border-0 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                     >
                       Log In
                     </Link>
