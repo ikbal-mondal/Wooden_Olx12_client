@@ -67,10 +67,10 @@ const OrderModal = ({order,setOrder}) => {
     <Form onSubmit={handleBooking}  className="container my-2  w-full max-w-xl p-8 mx-auto space-y-6   ">
          
         <div>
-			<input readOnly name='resale_price' value={`Resale Price: $${parseInt(resale_price)}`} disabled className="block w-full bg-gray-200 p-2 " />
+			<input readOnly name='resale_price' value={`$ ${parseInt(resale_price)}`} disabled className="block w-full bg-gray-200 p-2 " />
 		</div>
         <div>
-			<input readOnly name='original_price' value={`Original Price: $ ${parseInt(original_price)}`} disabled className="block w-full bg-gray-200 p-2 " />
+			<input readOnly name='original_price' value={` $ ${parseInt(original_price)}`} disabled className="block w-full bg-gray-200 p-2 " />
 		</div>
 		
 		<div>

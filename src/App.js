@@ -6,6 +6,7 @@ import DashboardLayout from './DashboardLayout.js/DashboardLayout';
 import Main from './Layout/Main';
 import CategoryProduct from './Pages/CategoryProduct/CategoryProduct';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import MayOrder from './Pages/Dashboard/MayOrder/MayOrder';
 import Error404Page from './Pages/Error404Page/Error404Page';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Home/Login/Login';
@@ -54,7 +55,7 @@ function App() {
     children:[
       {
         path:'/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <MayOrder></MayOrder>
       },
     ]
  }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import Footer from '../Pages/Home/Footer/Footer';
 import Navbar from '../Pages/Home/Navbar/Navbar';
 
 const DashboardLayout = () => {
@@ -67,6 +68,7 @@ const DashboardLayout = () => {
   
   </div>
 </div>
+<Footer></Footer>
         </div>
     );
 };
