@@ -5,7 +5,10 @@ import { AuthContext } from '../Context/AuthProvider';
 
 const PrivateRoute = ({children}) => {
      const location = useLocation()
-     const {user} = useContext(AuthContext)
+     const {user,loading} = useContext(AuthContext)
+     if(loading){
+      return <div className="w-16 text-center mt-36 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+     }
      if(user){
         return children
      }

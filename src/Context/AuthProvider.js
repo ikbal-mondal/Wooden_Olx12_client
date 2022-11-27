@@ -14,7 +14,7 @@ const AuthProvider = ({children}) => {
 
   
   const  createUser = (email,password) => {
-      
+      SetLoading(true)
       return createUserWithEmailAndPassword(auth,email,password);
     }
  
@@ -24,15 +24,17 @@ const AuthProvider = ({children}) => {
      }
 
 const loginWithGoogle = (provider) => {
+          SetLoading(true)
       return signInWithPopup(auth, provider);
     };
  
     const userLogin = (email,password) => {
-     
-        return signInWithEmailAndPassword(auth,email,password)
+      SetLoading(true)
+         return signInWithEmailAndPassword(auth,email,password)
      }
 
      const logOut = () => {
+      SetLoading(true)
         return signOut(auth);
       };
 

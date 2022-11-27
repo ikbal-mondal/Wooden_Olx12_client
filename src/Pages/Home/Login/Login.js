@@ -16,7 +16,7 @@ const Login = () => {
    const [loginUserEmail,setLoginUserEmail] = useState('')
    const {loginWithGoogle,userLogin} = useContext(AuthContext)
  const navigate = useNavigate();
-  const from = location.useStat?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/';
    
    const googleProvider = new GoogleAuthProvider()
 
@@ -47,7 +47,7 @@ const handleLogin = (data) => {
        console.log(user);
        setLoginUserEmail(data.email)
        toast.success('User login successfully done')
-  
+      navigate(from,{replace: true})
        
      })
      .catch(error => {

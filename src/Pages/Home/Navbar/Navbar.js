@@ -66,14 +66,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/home"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                >
-                  Product
-                </Link>
-              </li>
+             
               <li>
                 <Link
                   to="/dashboard"
@@ -83,14 +76,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link to='blogs'
                   aria-label="About us"
                   title="About us"
                   class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  About us
-                </a>
+                  Blogs
+                </Link>
               </li>
               {user?.email ? (
                 <>
