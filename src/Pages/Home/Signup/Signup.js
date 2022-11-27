@@ -18,7 +18,7 @@ const Signup = () => {
          const user = result.user;
          logOut()
          toast.success('user Created Successfully')
-         navigate('/login')
+         navigate('/')
         console.log(user);
         const userInfo = {
           displayName: data.name

@@ -4,18 +4,19 @@ import { useContext } from 'react';
 
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 
 
 const Login = () => {
+  // const navigate = useNavigate();
+  // const from = location.useStat?.from?.pathname || '/';
    const {handleSubmit, formState:{errors},register } = useForm()
    const [loginError,setLoginError] = useState('')
    const [loginUserEmail,setLoginUserEmail] = useState('')
    const {loginWithGoogle,userLogin} = useContext(AuthContext)
-  //  const navigate = useNavigate();
-  // const from = location.useStat?.from?.pathname || '/'
+ 
    
    const googleProvider = new GoogleAuthProvider()
 
@@ -73,7 +74,7 @@ const handleLogin = (data) => {
             <h2 className="text-center text-2xl font-medium"> Please LogIn</h2>
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                {" "}
+               
                 <span className="label-text">Email</span>
               </label>
               <input

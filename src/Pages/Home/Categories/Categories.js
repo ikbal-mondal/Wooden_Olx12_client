@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import CategoryCard from './CategoryCard';
 
 const Categories = () => {
  
-    const [Categories,setCategories] = useState()
+    // const [Categories,setCategories] = useState()
+    
+    const {data:Categories = []} = useQuery({
+      queryKey: ['http://localhost:5000/Categories'],
+      queryFn: () => fetch('http://localhost:5000/Categories')
+      .then(res => res.json())
+    })
 
-    useEffect(() => {
-        fetch('http://localhost:5000/Categories')
-        .then(res => res.json())
-        .then(data => setCategories(data))
-    },[])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/Categories')
+    //     .then(res => res.json())
+    //     .then(data => setCategories(data))
+    // },[])
      
 
     return (

@@ -25,7 +25,7 @@ const CategoryProduct = () => {
         </div>
         { order &&   
         <OrderModal
-      
+        setOrder={setOrder}
         order={order}
         ></OrderModal>}
         </>
