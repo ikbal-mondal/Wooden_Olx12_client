@@ -49,23 +49,19 @@ function App() {
     },
 
  {
-
   path:'/dashboard',
     element: <DashboardLayout></DashboardLayout>,
-   
     children:[
       {
         path:'/dashboard',
         element: <Dashboard></Dashboard>
       },
-     
-      
-
-     
     ]
-
-
  }
+
+
+
+
 
 
   ])

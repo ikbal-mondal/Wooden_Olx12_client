@@ -4,19 +4,19 @@ import { useContext } from 'react';
 
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link} from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 
 
 const Login = () => {
-  // const navigate = useNavigate();
-  // const from = location.useStat?.from?.pathname || '/';
+   const location = useLocation()
    const {handleSubmit, formState:{errors},register } = useForm()
    const [loginError,setLoginError] = useState('')
    const [loginUserEmail,setLoginUserEmail] = useState('')
    const {loginWithGoogle,userLogin} = useContext(AuthContext)
- 
+ const navigate = useNavigate();
+  const from = location.useStat?.from?.pathname || '/';
    
    const googleProvider = new GoogleAuthProvider()
 
