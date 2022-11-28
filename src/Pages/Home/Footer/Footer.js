@@ -42,7 +42,7 @@ const Footer = () => {
               title="Our email"
               className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
-              info@lorem.mail
+              info@Wooden.helf.com
             </a>
           </div>
           <div className="flex">
@@ -55,7 +55,7 @@ const Footer = () => {
               title="Our address"
               className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
-              312 Lovely Street, NY
+              700256 KOLKATA, INDIA
             </a>
           </div>
         </div>
@@ -98,7 +98,7 @@ const Footer = () => {
       </div>
       <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
         <p className="text-sm ">
-          © Copyright 2020 Lorem Inc. All rights reserved.
+          © Copyright 2020 WOODEN OLX. All rights reserved.
         </p>
         <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <li>

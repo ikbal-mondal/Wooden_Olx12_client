@@ -18,20 +18,31 @@ const Login = () => {
  const navigate = useNavigate();
   const from = location.state?.from?.pathname || '/';
    
+  const getUserToken = email => {
+    fetch(`http://localhost:5000/jwt?email=${email}`)
+    .then(res => res.json())
+    .then(data => {
+      if(data.accessToken){
+      localStorage.setItem('accessToken' , data.accessToken)
+      navigate('/');
+       
+      }
+    })
+   }
+
    const googleProvider = new GoogleAuthProvider()
 
    const handleGoogleSigIn = () =>  {
     loginWithGoogle(googleProvider)
     .then(result => {
         const user = result.user;
-        
+        getUserToken(user.email)
     })
     .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+       
       });
 
 }
@@ -47,6 +58,7 @@ const handleLogin = (data) => {
        console.log(user);
        setLoginUserEmail(data.email)
        toast.success('User login successfully done')
+       getUserToken(user.email)
       navigate(from,{replace: true})
        
      })

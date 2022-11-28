@@ -1,21 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 
+const token = localStorage.getItem('accessToken')
 const MayOrder = () => {
     const {user} = useContext(AuthContext)
+    const [loading,setLoading] = useState(false)
 
    const url = `http://localhost:5000/bookings?email=${user?.email}`
 
     const {data: bookings = [] } = useQuery({
         queryKey:['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(url);
+          setLoading(true)
+            const res = await fetch(url, {
+              headers:{
+                authorization:`bearer ${localStorage.getItem('accessToken')}`
+              }
+            });
             const data = await res.json();
+            console.log(data);
+            setLoading(false)
             return data;
+        
         }
+        
     })
+
 
 
     return (
@@ -34,13 +47,13 @@ const MayOrder = () => {
     </thead>
     <tbody>
 
-    {
-        bookings.map((booking,index) =>   <tr key={booking._id}>
+    { loading ? <div className="mx-auto"><div className="w-16  mt-36 h-16 border-4 border-dashed rounded-full animate-spin border-violet-700"></div></div> : 
+        bookings?.map((booking,index) =>   <tr key={booking._id}>
             <th>{index + 1}</th>
-            <td>{booking.displayName}</td>
-            <td>{booking.selectedProduct}</td>
-            <td>{booking.original_price}</td>
-            <td>{booking.resale_price}</td>
+            <td>{booking?.displayName}</td>
+            <td>{booking?.selectedProduct}</td>
+            <td>{booking?.original_price}</td>
+            <td>{booking?.resale_price}</td>
           </tr>
     )
     }

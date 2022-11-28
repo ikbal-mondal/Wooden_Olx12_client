@@ -23,7 +23,7 @@ const DashboardLayout = () => {
 		<div className="flex-1">
 			<ul className="pt-2 pb-4 space-y-1 text-sm">
 				<li className="rounded-sm border-b-2 border-slate-800 py-2 hover:text-black hover:bg-slate-200 ">
-					<Link to='/dashboard' className="flex items-center p-2 space-x-3 rounded-md">
+					<Link to='/dashboard/mayorder' className="flex items-center p-2 space-x-3 rounded-md">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-400">
 							<path d="M203.247,386.414,208,381.185V355.4L130.125,191H93.875L16,355.4v27.042l4.234,4.595a124.347,124.347,0,0,0,91.224,39.982h.42A124.343,124.343,0,0,0,203.247,386.414ZM176,368.608a90.924,90.924,0,0,1-64.231,26.413h-.33A90.907,90.907,0,0,1,48,369.667V362.6l64-135.112L176,362.6Z"></path>
 							<path d="M418.125,191h-36.25L304,355.4v27.042l4.234,4.595a124.347,124.347,0,0,0,91.224,39.982h.42a124.343,124.343,0,0,0,91.369-40.607L496,381.185V355.4ZM464,368.608a90.924,90.924,0,0,1-64.231,26.413h-.33A90.907,90.907,0,0,1,336,369.667V362.6l64-135.112L464,362.6Z"></path>
@@ -40,7 +40,7 @@ const DashboardLayout = () => {
 						<span>Wishlist</span>
 					</a>
 				</li>
-				<li className="rounded-sm border-b-2 border-slate-800 py-2  hover:text-black hover:bg-slate-200">
+				{/* <li className="rounded-sm border-b-2 border-slate-800 py-2  hover:text-black hover:bg-slate-200">
 					<a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-400">
 							<path d="M440,424V88H352V13.005L88,58.522V424H16v32h86.9L352,490.358V120h56V456h88V424ZM320,453.642,120,426.056V85.478L320,51Z"></path>
@@ -48,6 +48,12 @@ const DashboardLayout = () => {
 						</svg>
 						<span>Logout</span>
 					</a>
+				</li> */}
+				<li className="rounded-sm border-b-2 border-slate-800 py-2  hover:text-black hover:bg-slate-200">
+					<Link to='/dashboard/addproduct' className="flex items-center p-2 space-x-3 rounded-md">
+						<img className='w-8 h-8 rounded-lg ' src="https://static.thenounproject.com/png/2435334-200.png" alt="" />
+						<span>Add A Product</span>
+					</Link>
 				</li>
 			</ul>
 		</div>

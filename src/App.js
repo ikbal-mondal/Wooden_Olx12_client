@@ -6,16 +6,18 @@ import DashboardLayout from './DashboardLayout.js/DashboardLayout';
 import Main from './Layout/Main';
 import Blogs from './Pages/Blogs/Blogs';
 import CategoryProduct from './Pages/CategoryProduct/CategoryProduct';
-import Dashboard from './Pages/Dashboard/Dashboard';
 import MayOrder from './Pages/Dashboard/MayOrder/MayOrder';
+import Welcome from './Pages/Dashboard/Welcome';
 import Error404Page from './Pages/Error404Page/Error404Page';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Home/Login/Login';
 import Signup from './Pages/Home/Signup/Signup';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import AddProduct from './Seller/AddProduct/AddProduct';
 
 function App() {
  
+
   const router = createBrowserRouter([
     {
       path:'/',
@@ -59,10 +61,20 @@ function App() {
   path:'/dashboard',
     element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
     children:[
+      
       {
         path:'/dashboard',
+        element: <Welcome></Welcome>
+      },
+      {
+        path:'/dashboard/mayorder',
         element: <MayOrder></MayOrder>
       },
+      {
+        path:'/dashboard/addproduct',
+        element: <AddProduct></AddProduct>
+      },
+      
     ]
  }
 
