@@ -85,6 +85,12 @@ const Signup = () => {
                          className="input input-bordered w-full max-w-xs" />
                      {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
                  </div>
+                 <select className="select select-primary my-4  w-full max-w-xs">
+              <option  selected>
+                Seller
+              </option>
+              <option>Buyer</option>
+            </select>
                  <div className="form-control w-full max-w-xs">
                      <label className="label"> <span className="label-text">Email</span></label>
                      <input type="email"

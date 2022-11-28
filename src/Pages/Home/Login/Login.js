@@ -125,12 +125,7 @@ const handleLogin = (data) => {
               )}
               {loginError && <p className="text-red-700">{loginError}</p>}
             </div>
-            <select className="select select-primary my-4  w-full max-w-xs">
-              <option  selected>
-                Seller
-              </option>
-              <option>Buyer</option>
-            </select>
+            
             <input
               className="btn bg-gradient-to-r from-primary to-secondary border-0 w-full"
               value="Login"
