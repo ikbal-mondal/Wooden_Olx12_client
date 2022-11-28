@@ -1,14 +1,55 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 const AddProduct = () => {
     const {register,handleSubmit,formState:{errors}} = useForm();
+    const imageHostKey = process.env.REACT_APP_IMGBB_KEY;
 
-    const handleAddProduct  = (formData) => {
-        // const image = data.image[0];
-    //   const formData = new FormData();
-      console.log(formData);
+    console.log(imageHostKey);
+    const handleAddProduct  = (data) => {
+      console.log(data);
+        const image = data.image[0];
+      const formData = new FormData();
+      formData.append('image', image)
+      const url = `https://api.imgbb.com/1/upload?&key=${imageHostKey}`
+      fetch(url,{
+        method:'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(imgData => {
+      
+            if(imgData.success){
+              console.log();
+              const newProduct = {
+                product_name:data.product_name,
+                phone:data.phone,
+                price:data.price,
+                location:data.location,
+                description:data.description,
+                image:imgData.data.url
+              }
+
+               // Save product info to the bd 
+               fetch('http://localhost:5000/AddProducts',{
+                method: 'POST',
+                headers:{
+                  'content-type': 'application/json',
+                  authorization: `bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(newProduct)
+                .then(res => res.json())
+                .then(result => {
+                  console.log(result);
+                  toast.success('your product added')
+                })
+               })
+
+            }
+      })
     }
+
     return (
         <div>
             <h2 className='text-4xl font-semibold'>Add A Product</h2>
