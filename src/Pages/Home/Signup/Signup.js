@@ -8,15 +8,15 @@ import { AuthContext } from '../../../Context/AuthProvider';
 const Signup = () => {
     const {register,handleSubmit,formState:{errors}} = useForm()
     const [signUpError,setSignUpError] = useState('') 
-     const {createUser,updateUser,logOut} = useContext(AuthContext)
+     const {createUser,updateUser} = useContext(AuthContext)
      const navigate = useNavigate()
-    const handleSignUp = data => {
-      
+    const handleSignUp = (data,event) => {
+       const userRole = event.target.UserRole.value;
+       console.log(userRole);
       setSignUpError('')
       createUser(data.email,data.password)
       .then(result => {
          const user = result.user;
-         logOut()
          toast.success('user Created Successfully')
          navigate('/')
         console.log(user);
@@ -26,7 +26,7 @@ const Signup = () => {
        console.log(userInfo);
        updateUser(userInfo)
        .then(() => {
-        saveUser(data.name,data.email);
+        saveUser(data.name,data.email,userRole);
        })
        .catch((error) => {
        console.error(error);
@@ -39,10 +39,10 @@ const Signup = () => {
          
        })
       
-     
-       const saveUser = (name,email) => {
-        const user = {name,email};
-        fetch('http://localhost:5000/users',{
+       
+       const saveUser = (name,email,userRole) => {
+        const user = {name,email,userRole};
+        fetch('https://wooden-olx12-server.vercel.app/users',{
           method:'POST',
           headers:{
             'content-type': 'application/json'
@@ -58,7 +58,7 @@ const Signup = () => {
        }
    
        const getUserToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
+        fetch(`https://wooden-olx12-server.vercel.app/jwt?email=${email}`)
         .then(res => res.json())
         .then(data => {
           if(data.accessToken){
@@ -85,7 +85,7 @@ const Signup = () => {
                          className="input input-bordered w-full max-w-xs" />
                      {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
                  </div>
-                 <select className="select select-primary my-4  w-full max-w-xs">
+                 <select name='UserRole' className="select  select-primary my-4  w-full max-w-xs">
               <option  selected>
                 Seller
               </option>

@@ -6,16 +6,12 @@ const Categories = () => {
     // const [Categories,setCategories] = useState()
     
     const {data:Categories = []} = useQuery({
-      queryKey: ['http://localhost:5000/Categories'],
-      queryFn: () => fetch('http://localhost:5000/Categories')
+      queryKey: ['https://wooden-olx12-server.vercel.app/Categories'],
+      queryFn: () => fetch('https://wooden-olx12-server.vercel.app/Categories')
       .then(res => res.json())
     })
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/Categories')
-    //     .then(res => res.json())
-    //     .then(data => setCategories(data))
-    // },[])
+ 
      
 
     return (

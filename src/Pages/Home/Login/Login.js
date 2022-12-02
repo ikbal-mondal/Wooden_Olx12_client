@@ -19,9 +19,11 @@ const Login = () => {
   const from = location.state?.from?.pathname || '/';
    
   const getUserToken = email => {
-    fetch(`http://localhost:5000/jwt?email=${email}`)
+    console.log(email);
+    fetch(`https://wooden-olx12-server.vercel.app/jwt?email=${email}`)
     .then(res => res.json())
     .then(data => {
+      console.log(data);
       if(data.accessToken){
       localStorage.setItem('accessToken' , data.accessToken)
       navigate('/');
@@ -31,7 +33,6 @@ const Login = () => {
    }
 
    const googleProvider = new GoogleAuthProvider()
-
    const handleGoogleSigIn = () =>  {
     loginWithGoogle(googleProvider)
     .then(result => {
@@ -44,9 +45,7 @@ const Login = () => {
         const errorMessage = error.message;
        
       });
-
 }
-
 
 const handleLogin = (data) => {
     // setCreatedUserEmail(data.email)

@@ -8,12 +8,11 @@ import { AuthContext } from '../../../Context/AuthProvider';
 const OrderModal = ({order,setOrder}) => {
    const {user} = useContext(AuthContext)
    
-      const {Name,resale_price,original_price } = order;
-
+      const {Name,resale_price,original_price,img} = order;
+   
         const handleBooking = event => {
             event.preventDefault()
             const from = event.target;
-            const  original_price = from.original_price.value
             const resale_price = from.resale_price.value;
             const name = user?.displayName;
             const email = from.email.value;
@@ -27,13 +26,13 @@ const OrderModal = ({order,setOrder}) => {
               resale_price,
               email,
               location,
-              phone
-
+              phone,
+              img
               
            }
            // send data to the server 
            
-           fetch('http://localhost:5000/bookings', {
+           fetch('https://wooden-olx12-server.vercel.app/bookings', {
             method: 'POST',
             headers:{
               'content-type' : 'application/json'
@@ -50,10 +49,7 @@ const OrderModal = ({order,setOrder}) => {
            
            })
 
-             
-
-            // console.log(original_price,resale_price,resale_price,name , email,phone);
-
+  
         }
 
 
@@ -67,11 +63,10 @@ const OrderModal = ({order,setOrder}) => {
     <Form onSubmit={handleBooking}  className="container my-2  w-full max-w-xl p-8 mx-auto space-y-6   ">
          
         <div>
-			<input readOnly name='resale_price' value={`$ ${parseInt(resale_price)}`} disabled className="block w-full bg-gray-200 p-2 " />
+          <label htmlFor="">Resale Price:</label>
+			<input readOnly name='resale_price' value={`${resale_price}`} disabled className="block w-full bg-gray-200 p-2 " />
 		</div>
-        <div>
-			<input readOnly name='original_price' value={` $ ${parseInt(original_price)}`} disabled className="block w-full bg-gray-200 p-2 " />
-		</div>
+       
 		
 		<div>
 			<input name='name' type="text" disabled  defaultValue={user?.displayName} placeholder="Full Name" required="" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 dark:bg-gray-800 border-2" />

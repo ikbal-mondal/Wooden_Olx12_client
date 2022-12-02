@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const token = localStorage.getItem('accessToken')
@@ -9,7 +10,7 @@ const MayOrder = () => {
     const {user} = useContext(AuthContext)
     const [loading,setLoading] = useState(false)
 
-   const url = `http://localhost:5000/bookings?email=${user?.email}`
+   const url = `https://wooden-olx12-server.vercel.app/bookings?email=${user?.email}`
 
     const {data: bookings = [] } = useQuery({
         queryKey:['bookings', user?.email],
@@ -29,7 +30,7 @@ const MayOrder = () => {
         
     })
 
-
+console.log(bookings);
 
     return (
         <div>
@@ -39,10 +40,12 @@ const MayOrder = () => {
     <thead>
       <tr>
         <th></th>
+        <th>picture</th>
         <th>Name</th>
         <th>Product Name</th>
         <th>Original price</th>
         <th>Resale Price</th>
+        <th>Pay Now</th>
       </tr>
     </thead>
     <tbody>
@@ -50,10 +53,27 @@ const MayOrder = () => {
     { loading ? <div className="mx-auto"><div className="w-16  mt-36 h-16 border-4 border-dashed rounded-full animate-spin border-violet-700"></div></div> : 
         bookings?.map((booking,index) =>   <tr key={booking._id}>
             <th>{index + 1}</th>
+            <td><div className="avatar">
+  <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+    <img src={booking?.img} alt='' />
+  </div>
+</div></td>
             <td>{booking?.displayName}</td>
             <td>{booking?.selectedProduct}</td>
             <td>{booking?.original_price}</td>
             <td>{booking?.resale_price}</td>
+            <td>
+              {
+                 !booking.paid && 
+                <Link to={`/dashboard/payment/${booking._id}`}>
+                <button className="btn  btn-success">Pay</button>
+                </Link>
+              }
+              {
+                 booking.paid && 
+                <span className='text-success'>Paid</span>
+              }
+            </td>
           </tr>
     )
     }
